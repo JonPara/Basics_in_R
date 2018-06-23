@@ -32,6 +32,7 @@ tail(demographics, 10)
 # Display how many Rows & Columns are there
 nrow(demographics)
 ncol(demographics)
+length(demographics$CHSI_State_Name)
 
 # Display how many rows are there by lookign at column "CHSI_State_Name"
 
@@ -65,4 +66,12 @@ max(demographics["State_FIPS_Code"])
 unique(demographics["CHSI_State_Name"])
 
 # Display Unique CHSI_State_Name & CHSI_County_Name
+
+
+# Plot Demographics Chart with Poverty for Each State
+library(ggplot2)
+ggplot(demographics, aes(x = CHSI_State_Name, y = Age_85_and_Over)) + geom_histogram(color = "green")
+
+ggplot(demographics, aes(x = CHSI_State_Name, y = Age_85_and_Over)) +
+  geom_boxplot(color = "blue")
 
